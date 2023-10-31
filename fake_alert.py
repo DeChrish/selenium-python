@@ -7,7 +7,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchElementException 
 
 @pytest.fixture
 def browser():
@@ -20,7 +20,7 @@ def browser():
 #     assert "Fake Alerts" in browser.title
 #     sleep(5)
 
-def test__alert(browser: WebDriver):
+def test_alert(browser: WebDriver):
     browser.get("https://testpages.eviltester.com/styled/alerts/fake-alert-test.html")
     assert "Fake Alerts" in browser.title   
     try:
