@@ -1,4 +1,4 @@
-# elements_list.py
+# iframe.py
 from time import sleep
 import pytest
 from selenium import webdriver
@@ -16,17 +16,20 @@ def browser():
     yield driver
     driver.quit()
 
-def test_table(browser : webdriver):
-
+def test_iframe(browser : webdriver):
     expected = ['Colour','Date','Local date time','Email','Month','Number']
-    browser.get("https://testpages.eviltester.com/styled/html5-form-test.html")
-    assert "HTML5 Form Elements Test Page" in browser.title
-    count = 0
-    ids = browser.find_elements(By.CSS_SELECTOR, '#HTMLFormElements div label')
+    browser.get("https://testpages.eviltester.com/styled/iframes-test.html")
+    assert "iFrames Example" in browser.title
+
+    #iframe = browser.find_element(By.ID, "#thedynamichtml")
+
+    browser.switch_to.frame('thedynamichtml')
+
+    ids = browser.find_elements(By.TAG_NAME, "li")
+
     print(len(ids))
+
+    #iframe0  ul - li
+
     for id in ids:
-        actual = id.get_attribute('innerText')
-        actual_list = actual[:-2]
-        assert actual_list in expected[count]
-        count = count + 1
-        
+        print(id.get_attribute('innerText'))
