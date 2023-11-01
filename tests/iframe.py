@@ -3,16 +3,12 @@ import pytest
 from selenium import webdriver
 #from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
+from capability.browser_caps import caps
+
 
 @pytest.fixture
 def browser():
-    options = webdriver.ChromeOptions()
-    options.add_argument("--headless=new")
-    service = ChromeService(ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=service, options=options)
-    driver.implicitly_wait(10)
+    driver = caps()
     yield driver
     driver.quit()
 
