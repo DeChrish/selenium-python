@@ -3,14 +3,7 @@ import pytest
 from selenium import webdriver
 #from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
-from capability.browser_caps import caps
 
-
-@pytest.fixture
-def browser():
-    driver = caps()
-    yield driver
-    driver.quit()
 
 @pytest.mark.parametrize("frameid",[
     ("thedynamichtml"),

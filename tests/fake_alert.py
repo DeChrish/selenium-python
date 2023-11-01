@@ -10,18 +10,12 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-@pytest.fixture
-def browser():
-    driver = webdriver.Chrome()
-    yield driver
-    driver.quit()
-
 # def test_successful_login(browser: WebDriver):
 #     browser.get("https://testpages.eviltester.com/styled/alerts/fake-alert-test.html")
 #     assert "Fake Alerts" in browser.title
 #     sleep(5)
 
-def test_alert(browser: WebDriver):
+def test_alert(browser: webdriver):
     browser.get("https://testpages.eviltester.com/styled/alerts/fake-alert-test.html")
     assert "Fake Alerts" in browser.title   
     try:

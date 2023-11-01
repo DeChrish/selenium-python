@@ -1,17 +1,13 @@
 # elements_list.py
 import pytest
+
 from selenium import webdriver
 #from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.common.by import By
 
 
-@pytest.fixture
-def browser():
-    driver = webdriver.Chrome()
-    yield driver
-    driver.quit()
+def test_table(browser:webdriver):
 
-def test_table(browser : webdriver):
 
     expected = ['Colour','Date','Local date time','Email','Month','Number']
     browser.get("https://testpages.eviltester.com/styled/html5-form-test.html")
